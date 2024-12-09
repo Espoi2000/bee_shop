@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="beep_shop"
+        android:label="Bee shop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
