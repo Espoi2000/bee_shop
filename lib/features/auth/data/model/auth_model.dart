@@ -61,15 +61,15 @@ class AuthModel {
 
 class AuthLoginModel {
   final String username;
-  final String email;
+  final String password;
 
-  AuthLoginModel({required this.email, required this.username});
+  AuthLoginModel({required this.password, required this.username});
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
   
     result.addAll({'username': username});
-    result.addAll({'email': email});
+    result.addAll({'email': password});
   
     return result;
   }
@@ -77,7 +77,7 @@ class AuthLoginModel {
   factory AuthLoginModel.fromMap(Map<String, dynamic> map) {
     return AuthLoginModel(
       username: map['username'] ?? '',
-      email: map['email'] ?? '',
+      password: map['password'] ?? '',
     );
   }
 
