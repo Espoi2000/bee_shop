@@ -21,6 +21,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthIsFailure(error: e.toString()));
       }
     });
-    
+
+    on<GetCurrentUserEvent>((event, emit) async {
+      try {
+        emit(CurrentAuthUserLoading());
+        final data = await repository.getCurrentUser();
+        emit(CurrentAuthUserSuccess(auth: data));
+      } catch (e) {
+        emit(CurrentAuthUserFailure(error: e.toString()));
+      }
+    });
   }
 }

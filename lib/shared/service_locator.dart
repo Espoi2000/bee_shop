@@ -10,9 +10,9 @@ void setupLocator() {
   getIt.registerLazySingleton<Dio>(() => Dio(
         BaseOptions(
           baseUrl: "https://dummyjson.com",
-          sendTimeout: const Duration(microseconds: 500),
-          connectTimeout: const Duration(microseconds: 500),
-          receiveTimeout: const Duration(microseconds: 500),
+          sendTimeout: const Duration(seconds: 5), // 5 secondes
+          connectTimeout: const Duration(seconds: 5), // 5 secondes
+          receiveTimeout: const Duration(seconds: 5), // 5 secondes
         ),
       ));
   // register auth

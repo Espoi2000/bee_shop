@@ -7,6 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   setupLocator();
+
+
+
+  
   await boostrap(
     () => MultiBlocProvider(providers: [
       BlocProvider(

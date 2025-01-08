@@ -13,12 +13,18 @@ class AuthRepository {
         await authService.loginAuthService(authLoginModel: authLoginModel);
 
     // set data into shared preferences
-
+    print(response);
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("accessToken", response["accessToken"]);
     prefs.setString("refreshToken", response["refreshToken"]);
     prefs.setInt("id", response["id"]);
     //
+    return AuthModel.fromMap(response);
+  }
+
+
+  Future<AuthModel> getCurrentUser() async {
+    var response = await authService.getCurrentUser();
     return AuthModel.fromMap(response);
   }
 }

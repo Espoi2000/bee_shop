@@ -7,3 +7,5 @@ class LoginEvent extends AuthEvent {
   final AuthLoginModel authLoginModel;
   LoginEvent({required this.authLoginModel});
 }
+
+class GetCurrentUserEvent extends AuthEvent {}

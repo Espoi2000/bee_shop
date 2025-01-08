@@ -18,3 +18,16 @@ final class AuthIsFailure extends AuthState {
   final String error;
   const AuthIsFailure({required this.error});
 }
+
+// currentAuthUser
+
+final class CurrentAuthUserLoading extends AuthState {}
+
+final class CurrentAuthUserSuccess extends AuthState {
+  const CurrentAuthUserSuccess({super.auth});
+}
+
+final class CurrentAuthUserFailure extends AuthState {
+  final String error;
+  const CurrentAuthUserFailure({required this.error});
+}

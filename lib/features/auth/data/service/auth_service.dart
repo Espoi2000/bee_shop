@@ -9,11 +9,36 @@ class AuthService {
 
   Future<Map<String, dynamic>> loginAuthService(
       {required AuthLoginModel authLoginModel}) async {
+    print("ici");
+    print(authLoginModel.toJson());
     Response response = await dio.post(
       "/auth/login",
-      data: authLoginModel.toJson(),
+      data: {
+        "username": authLoginModel.username,
+        "password": authLoginModel.password
+      },
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+        },
+      ),
     );
 
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> getCurrentUser() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? accessToken = prefs.getString("accessToken");
+    Response response = await dio.get(
+      "/user/me",
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $accessToken",
+        },
+      ),
+    );
     return response.data;
   }
 }
