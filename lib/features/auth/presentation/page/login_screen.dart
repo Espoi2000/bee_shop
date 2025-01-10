@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           );
-          context.router.replaceAll([const HomeRoute()]);
+          context.router.replaceAll([const HomeTabbsarRoute()]);
         } else if (state is AuthIsFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

@@ -47,6 +47,9 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   dio: ^5.7.0
   shared_preferences: ^2.3.3
+  salomon_bottom_bar: ^3.3.2
+  iconsax: ^0.0.8
+  icon_badge: ^1.0.0
 
 dev_dependencies:
   flutter_test:

@@ -19,16 +19,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      Duration.zero,
+       const Duration(seconds: 5),
       () async {
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        String? accessToken = prefs.getString("accessToken");
-        int? id = prefs.getInt("id");
-        if (accessToken != null && id != null) {
-          getIt.get<AuthBloc>().add(GetCurrentUserEvent());
-        } else {
           context.router.replace(const OnboardingRoute());
-        }
+        // final SharedPreferences prefs = await SharedPreferences.getInstance();
+        // String? accessToken = prefs.getString("accessToken");
+        // int? id = prefs.getInt("id");
+        // if (accessToken != null && id != null) {
+        //   getIt.get<AuthBloc>().add(GetCurrentUserEvent());
+        // } else {
+          
+        // }
       },
     );
     super.initState();
@@ -93,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                     .get<AuthBloc>()
                                     .add(GetCurrentUserEvent());
                               },
-                              child: const Text('Go to login screen'),
+                              child: const Text('Refresh'),
                             )
                           : const SizedBox();
                 },
