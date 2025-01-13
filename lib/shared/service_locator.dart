@@ -4,6 +4,9 @@ import 'package:beep_shop/features/auth/logic/bloc/auth_bloc.dart';
 import 'package:beep_shop/features/categories/business_logic/bloc/category_bloc.dart';
 import 'package:beep_shop/features/categories/data/repositories/categorie_repository.dart';
 import 'package:beep_shop/features/categories/data/service/categorie_service.dart';
+import 'package:beep_shop/features/products/data/repositories/product_repository.dart';
+import 'package:beep_shop/features/products/data/service/product_service.dart';
+import 'package:beep_shop/features/products/logic/bloc/product_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -39,4 +42,14 @@ void setupLocator() {
 
   getIt.registerLazySingleton<CategoryBloc>(() =>
       CategoryBloc(categorieRepository: getIt.get<CategorieRepository>()));
+
+  // register products
+  getIt.registerLazySingleton<ProductService>(
+      () => ProductService(http: getIt.get<Dio>()));
+
+  getIt.registerLazySingleton<ProductRepository>(
+      () => ProductRepository(productService: getIt<ProductService>()));
+
+  getIt.registerLazySingleton<ProductBloc>(
+      () => ProductBloc(productRepository: getIt.get<ProductRepository>()));
 }

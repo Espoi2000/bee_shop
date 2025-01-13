@@ -50,6 +50,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   iconsax: ^0.0.8
   icon_badge: ^1.0.0
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
